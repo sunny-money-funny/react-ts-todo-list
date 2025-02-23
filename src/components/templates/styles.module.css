@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--col3);
+  height: 80vh; /* 전체 화면 높이 */
+}
+
+.head {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.body {
+  flex-grow: 1;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.foot {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 스크롤바 전체 */
+.body::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 */
+}
+
+/* 스크롤바 핸들 */
+.body::-webkit-scrollbar-thumb {
+  background: var(--col4);
+  border-radius: 7px;
+}
+
+/* 스크롤바 핸들 (호버 시) */
+.body::-webkit-scrollbar-thumb:hover {
+  background: var(--col1);
+}

@@ -1,0 +1,41 @@
+.item {
+  background-color: var(--col4);
+  padding: 10px;
+  color: black;
+  width: 95%;
+  font-family: "Pretendard-Regular";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.category {
+  font-family: "Pretendard-Regular";
+  color: black;
+  font-size: 14px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.buttons {
+  margin-left: 10px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  font-family: "Pretendard-Regular";
+}
+
+.task {
+  display: flex;
+  flex: 3;
+  text-align: left;
+  font-family: "Pretendard-Regular";
+  word-wrap: break-word;
+  font-size: 14px;
+}

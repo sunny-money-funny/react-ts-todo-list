@@ -1,0 +1,12 @@
+.foot {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Pretendard-Regular";
+  font-size: 14px;
+}
+
+img {
+  width: 100px;
+  height: auto;
+}

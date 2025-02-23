@@ -1,0 +1,10 @@
+.default {
+    font-size: 4rem;
+    font-family: "Pretendard-Regular";
+  }
+  
+  .title {
+    font-size: 1.7rem;
+    font-family: "DungGeunMo";
+    font-weight: bold;
+  }

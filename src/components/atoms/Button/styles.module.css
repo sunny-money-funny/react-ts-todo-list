@@ -1,0 +1,19 @@
+.button {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.add {
+  background-color: var(--col4);
+  color: black;
+  border:none;
+  font-family: "Pretendard-Regular";
+  font-size: 10px;
+}
+
+.delete {
+  font-family: "Pretendard-Regular";
+  background-color: var(--col4);
+  border: 1px solid black;
+  font-size: 10px;
+}
