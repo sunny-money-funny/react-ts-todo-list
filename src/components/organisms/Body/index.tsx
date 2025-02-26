@@ -1,6 +1,7 @@
 import React from "react";
 import { Item } from "../../molecules/Item";
 import styles from "./styles.module.css";
+import { Foot } from "../../organisms/Foot"; 
 
 interface TodoItem {
   id: number;
@@ -27,7 +28,7 @@ export const Body: React.FC<BodyProps> = ({ items, onDelete }) => {
             id={item.id}
             category={item.category}
             task={item.task}
-            checked={item.completed}  // 완료 상태 전달
+            checked={item.completed} 
             onDelete={onDelete}
           />
         ))
