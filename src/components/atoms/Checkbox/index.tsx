@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./styles.module.css";
 
 interface CheckboxProps {
@@ -8,7 +8,7 @@ interface CheckboxProps {
   label: string;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({   
   onChange,
   checked,
   className = "",
@@ -18,8 +18,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     <label className={`${styles.checkbox} ${className}`}>
       <input
         type="checkbox"
-        checked={true}
-        onChange={() => {}} // 아무 동작 없이 UI만 표시
+        checked={checked}
+        onChange={() => onChange(checked)}
         className={styles.input}
       />
       {label}

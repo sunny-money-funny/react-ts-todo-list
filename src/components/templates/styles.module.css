@@ -1,13 +1,14 @@
-.container {
+.templateContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
   background-color: var(--col3);
-  height: 80vh; /* 전체 화면 높이 */
+  height: 80vh;
 }
 
 .head {

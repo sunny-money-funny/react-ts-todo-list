@@ -6,10 +6,10 @@ import styles from "./styles.module.css";
 
 interface HeadProps {
   onAdd: (newTask: string) => void;
-  onCategoryChange: (category: string) => void;
+  onCategoryFilter: (category: string) => void;
 }
 
-export const Head: React.FC<HeadProps> = ({ onAdd, onCategoryChange }) => {
+export const Head: React.FC<HeadProps> = ({ onAdd, onCategoryFilter }) => {
   return (
     <div className={styles.headContainer}>
       <div className={styles.headText}>
@@ -21,7 +21,7 @@ export const Head: React.FC<HeadProps> = ({ onAdd, onCategoryChange }) => {
         <AddList onAdd={onAdd} />
       </div>
       <div className={styles.filterWrapper}>
-        <Filter onCategoryChange={onCategoryChange} />
+        <Filter onCategoryFilter = {onCategoryFilter}/>
       </div>
     </div>
   );

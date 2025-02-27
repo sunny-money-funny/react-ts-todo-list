@@ -3,15 +3,15 @@ import styles from "./styles.module.css";
 import { Radio } from "../../atoms/Radio";
 
 interface FilterProps {
-  onCategoryChange: (category: string) => void;
+  onCategoryFilter: (category: string) => void;
 }
 
-export const Filter: React.FC<FilterProps> = ({ onCategoryChange }) => {
+export const Filter: React.FC<FilterProps> = ({ onCategoryFilter }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
-    onCategoryChange(category);
+    onCategoryFilter(category);
   };
 
   return (
