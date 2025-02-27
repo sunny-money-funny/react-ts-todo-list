@@ -1,3 +1,4 @@
+// templates/index.tsx
 import React from "react";
 import { Head } from "../organisms/Head";
 import { Body } from "../organisms/Body";

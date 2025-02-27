@@ -1,3 +1,5 @@
+// organism/body/index.tsx
+
 import React from "react";
 import { Item } from "../../molecules/Item";
 import styles from "./styles.module.css";
@@ -25,7 +27,7 @@ export const Body: React.FC<BodyProps> = ({ items, onDelete, onCompleteToggle, o
   return (
     <div className = {styles.body}>
       {items.length === 0 ? (
-        <p>아직할 일이 없다냐옹</p>
+        <p>아직 할 일이 없다냐옹</p>
       ) : (
         items.map((item) => (
           <Item            

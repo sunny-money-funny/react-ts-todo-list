@@ -1,3 +1,5 @@
+// organism/foot/index.tsx
+
 import React from "react";
 import { Count } from "../../molecules/Count";
 import catImage from "../../../assets/cat.png";
