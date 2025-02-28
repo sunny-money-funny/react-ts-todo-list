@@ -1,10 +1,11 @@
 import React from "react";
-import { Todo } from "./components/pages";
+import Page from "./components/pages"; // default export 방식으로 수정
+
 
 function App() {
   return (
     <div>
-      <Todo />
+      <Page />
     </div>
   );
 }

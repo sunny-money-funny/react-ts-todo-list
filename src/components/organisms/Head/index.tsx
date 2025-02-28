@@ -1,5 +1,4 @@
 // organism/head/index.tsx
-
 import React from "react";
 import { AddList } from "../../molecules/AddList";
 import { Filter } from "../../molecules/Filter";
@@ -12,10 +11,14 @@ interface HeadProps {
 }
 
 export const Head: React.FC<HeadProps> = ({ onAdd, onCategoryFilter }) => {
+  const handleTitleClick = () => {
+    window.location.reload();
+  };
+  
   return (
     <div className={styles.headContainer}>
       <div className={styles.headText}>
-        <Text variant="title" className={styles.title}>
+        <Text variant="title" className={styles.title} onClick={handleTitleClick} > 
           냥 투두
         </Text>
       </div>
