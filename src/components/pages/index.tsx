@@ -11,7 +11,8 @@ const Page: React.FC = () => {
     deleteTodo,
     toggleComplete,
     changeCategory,
-    activeFilter
+    activeFilter,
+    categoryOptions
   } = useTodo();
 
   return (
@@ -22,7 +23,7 @@ const Page: React.FC = () => {
       onCategoryFilter={handleCategoryFilter}
       onCompleteToggle={toggleComplete}
       onCategoryChange={changeCategory}
-      categoryOptions={["all", "work", "study"]} 
+      categoryOptions={categoryOptions} 
     />
   );
 };

@@ -14,6 +14,7 @@ interface TodoItem {
 export const useTodo = () => {
   const [items, setItems] = useState<TodoItem[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [categoryOptions, setCategoryOptions] = useState<string[]>(["all", "work", "study"]);
 
   const addTodo = (task: string, category: string) => {
     const newTodo: TodoItem = {
@@ -24,7 +25,7 @@ export const useTodo = () => {
       onDelete: deleteTodo,
       onCompleteToggle: toggleComplete,
       onCategoryChange: changeCategory,
-      categoryOptions: ["all", "work", "study"],
+      categoryOptions,
     };
 
     setItems((prevItems) => [...prevItems, newTodo]);
@@ -67,5 +68,6 @@ export const useTodo = () => {
     handleCategoryFilter,
     filteredItems,
     activeFilter,
+    categoryOptions,
   };
 };

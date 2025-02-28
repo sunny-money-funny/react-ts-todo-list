@@ -50,7 +50,6 @@ export const Template: React.FC<TemplateProps> = ({
         onCompleteToggle={onCompleteToggle} 
         onCategoryChange={onCategoryChange} 
         categoryOptions={categoryOptions} />
-
       </div>
       <div className = {styles.foot}>
       <Foot total={total} done={done} undone={undone} />
