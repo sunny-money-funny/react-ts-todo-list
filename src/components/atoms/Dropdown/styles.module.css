@@ -1,0 +1,54 @@
+/* Dropdown 컨테이너 */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: auto;
+  }
+  
+  /* 드롭다운 선택 상자 */
+  .dropdown select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: yellow;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* 드롭다운 선택 상자에 포커스 시 */
+  .dropdown select:focus {
+    border-color: #309b5b;
+    outline: none;
+  }
+  
+  /* 드롭다운 옵션에 대한 스타일 (필요하면 추가) */
+  .dropdown option {
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* 옵션 선택 시 스타일 */
+  .dropdown option:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* 드롭다운 화살표를 꾸미고 싶다면 추가 */
+  .dropdown select::-ms-expand {
+    display: none;
+  }
+  
+  .dropdown select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4" stroke="black" stroke-width="2" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+  }
+  

@@ -28,9 +28,10 @@ export const Item: React.FC<ItemProps> = ({
   onCategoryChange,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const itemClass = completed ? styles.completedItem : styles.pendingItem;
 
   return (
-    <div className={styles.item}>
+    <div className={`${styles.item} ${itemClass}`}>
       {isEditing ? (
         <Dropdown
           options={categoryOptions}

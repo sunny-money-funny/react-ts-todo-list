@@ -14,7 +14,7 @@ interface TodoItem {
 export const useTodo = () => {
   const [items, setItems] = useState<TodoItem[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
-  const [categoryOptions, setCategoryOptions] = useState<string[]>(["all", "work", "study"]);
+  const categoryOptions = ["all", "work", "study"];
 
   const addTodo = (task: string, category: string) => {
     const newTodo: TodoItem = {
@@ -28,7 +28,7 @@ export const useTodo = () => {
       categoryOptions,
     };
 
-    setItems((prevItems) => [...prevItems, newTodo]);
+    setItems((prevItems) => [newTodo, ...prevItems]);
   };
 
   const deleteTodo = (id: number) => {
@@ -36,11 +36,17 @@ export const useTodo = () => {
   };
 
   const toggleComplete = (id: number) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
+    setItems((prevItems) => {
+      const updatedItems = prevItems.map((item) =>
         item.id === id ? { ...item, completed: !item.completed } : item
-      )
-    );
+      );
+      
+      // 완료된 항목을 맨 아래로 이동
+      const completedItems = updatedItems.filter((item) => item.completed);
+      const remainingItems = updatedItems.filter((item) => !item.completed);
+
+      return [...remainingItems, ...completedItems]; // 완료된 항목은 배열 뒤로
+    });
   };
 
   const changeCategory = (id: number, newCategory: string) => {
