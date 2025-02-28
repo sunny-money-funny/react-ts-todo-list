@@ -12,7 +12,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange, cl
     <select className={className} value={value} onChange={(e) => onChange(e.target.value)}>
       {options.map((option) => (
         <option key={option} value={option}>
-          {option}
+          {option === "work" ? "업무" : option === "study" ? "공부" : "전체"}
         </option>
       ))}
     </select>

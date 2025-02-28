@@ -46,7 +46,7 @@ export const Item: React.FC<ItemProps> = ({
             variant="default"
             className={styles.category}
           >
-            {category}
+            {category === "work" ? "업무" : category === "study" ? "공부" : "전체"}
           </Text>
         </div>
       )}
