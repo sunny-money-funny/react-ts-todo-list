@@ -1,7 +1,7 @@
 // components/pages/index.tsx
-import React from 'react';
-import { useTodo } from '../../hooks/useTodo';
-import { Template } from '../templates';
+import React from "react";
+import { useTodo } from "../../hooks/useTodo";
+import { Template } from "../templates";
 
 const Page: React.FC = () => {
   const {
@@ -12,18 +12,22 @@ const Page: React.FC = () => {
     toggleComplete,
     changeCategory,
     activeFilter,
-    categoryOptions
+    categoryOptions,
+    changeTask,
   } = useTodo();
 
   return (
     <Template
       items={filteredItems}
       onDelete={deleteTodo}
-      onAdd={(newTask: string) => addTodo(newTask, activeFilter !== "all" ? activeFilter : "all")}
+      onAdd={(newTask: string) =>
+        addTodo(newTask, activeFilter !== "all" ? activeFilter : "all")
+      }
       onCategoryFilter={handleCategoryFilter}
       onCompleteToggle={toggleComplete}
       onCategoryChange={changeCategory}
-      categoryOptions={categoryOptions} 
+      categoryOptions={categoryOptions}
+      onTaskEdit={changeTask}
     />
   );
 };

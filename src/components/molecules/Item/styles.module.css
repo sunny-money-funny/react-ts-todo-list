@@ -2,7 +2,7 @@
   background-color: var(--col4);
   padding: 10px;
   color: black;
-  width: 95%;
+  width: 100%;
   font-family: "Pretendard-Regular";
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
   flex-shrink: 0;
   justify-content: flex-end;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
   font-family: "Pretendard-Regular";
 }
 
@@ -40,6 +40,18 @@
   font-size: 14px;
 }
 
+.taskContainer {
+  margin-left: 10px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editTask {
+  background-color: var(--col4);
+}
+
 .completedItem {
   background-color: var(--col2);
 }
@@ -48,10 +60,28 @@
   text-decoration: line-through;
 }
 
-.deleteButton {
+.editButton {
   height: 25px;
-  width: 40px;
+  width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-color: var(--col4);
+}
+
+.editButton:hover {
+  background-color: var(--col2);
+}
+
+.deleteButton {
+  height: 25px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: var(--col4);
+}
+
+.deleteButton:hover {
+  background-color: var(--col2);
 }

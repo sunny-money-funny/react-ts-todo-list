@@ -13,6 +13,7 @@ interface TodoItem {
   onCompleteToggle: (id: number) => void;
   onCategoryChange: (id: number, newCategory: string) => void;
   categoryOptions: string[];
+  onTaskEdit: (id: number, newTask: string) => void;
 }
 
 interface TemplateProps {
@@ -23,6 +24,7 @@ interface TemplateProps {
   onCategoryFilter: (category: string) => void;
   onCategoryChange: (id: number, newCategory: string) => void;
   categoryOptions: string[];
+  onTaskEdit: (id: number, newTask: string) => void;
 }
 
 export const Template: React.FC<TemplateProps> = ({
@@ -33,6 +35,7 @@ export const Template: React.FC<TemplateProps> = ({
   onCategoryChange,
   onCompleteToggle,
   categoryOptions,
+  onTaskEdit,
 }) => {
   const total = items.length;
   const done = items.filter((item) => item.completed).length;
@@ -52,6 +55,7 @@ export const Template: React.FC<TemplateProps> = ({
             onCompleteToggle={onCompleteToggle}
             onCategoryChange={onCategoryChange}
             categoryOptions={categoryOptions}
+            onTaskEdit={onTaskEdit}
           />
         </div>
         <div className={styles.foot}>

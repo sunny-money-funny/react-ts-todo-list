@@ -9,6 +9,7 @@ interface TodoItem {
   onCompleteToggle: (id: number) => void;
   onCategoryChange: (id: number, newCategory: string) => void;
   categoryOptions: string[];
+  onTaskEdit: (id: number, newTask: string) => void;
 }
 
 export const useTodo = () => {
@@ -26,6 +27,7 @@ export const useTodo = () => {
       onCompleteToggle: toggleComplete,
       onCategoryChange: changeCategory,
       categoryOptions,
+      onTaskEdit: changeCategory,
     };
 
     setItems((prevItems) => [newTodo, ...prevItems]);
@@ -62,6 +64,14 @@ export const useTodo = () => {
     );
   };
 
+  const changeTask = (id: number, newTask: string) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, task: newTask } : item
+      )
+    );
+  };
+
   const handleCategoryFilter = (category: string) => {
     setActiveFilter(category);
   };
@@ -80,5 +90,6 @@ export const useTodo = () => {
     filteredItems,
     activeFilter,
     categoryOptions,
+    changeTask,
   };
 };

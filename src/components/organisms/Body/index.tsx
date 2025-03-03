@@ -11,7 +11,8 @@ interface TodoItem {
   onDelete: (id: number) => void;
   onCompleteToggle: (id: number) => void;
   onCategoryChange: (id: number, newCategory: string) => void;
-  categoryOptions: string[];  
+  categoryOptions: string[];
+  onTaskEdit: (id: number, newTask: string) => void;
 }
 
 interface BodyProps {
@@ -19,11 +20,19 @@ interface BodyProps {
   onDelete: (id: number) => void;
   onCompleteToggle: (id: number) => void;
   onCategoryChange: (id: number, newCategory: string) => void;
-  categoryOptions: string[];  
+  categoryOptions: string[];
+  onTaskEdit: (id: number, newTask: string) => void;
 }
 
-export const Body: React.FC<BodyProps> = ({ items, onDelete, onCompleteToggle, onCategoryChange, categoryOptions }) => {
-    return (
+export const Body: React.FC<BodyProps> = ({
+  items,
+  onDelete,
+  onCompleteToggle,
+  onCategoryChange,
+  categoryOptions,
+  onTaskEdit,
+}) => {
+  return (
     <div className={styles.body}>
       {items.length === 0 ? (
         <p>아직 할 일이 없다냐옹</p>
@@ -39,6 +48,7 @@ export const Body: React.FC<BodyProps> = ({ items, onDelete, onCompleteToggle, o
             onCompleteToggle={onCompleteToggle}
             onCategoryChange={onCategoryChange}
             categoryOptions={categoryOptions}
+            onTaskEdit={onTaskEdit}
           />
         ))
       )}

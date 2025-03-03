@@ -15,6 +15,7 @@ interface ItemProps {
   onDelete: (id: number) => void;
   onCompleteToggle: (id: number) => void;
   onCategoryChange: (id: number, newCategory: string) => void;
+  onTaskEdit: (id: number, newTask: string) => void;
 }
 
 export const Item: React.FC<ItemProps> = ({
@@ -26,9 +27,15 @@ export const Item: React.FC<ItemProps> = ({
   onDelete,
   onCompleteToggle,
   onCategoryChange,
+  onTaskEdit,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [editedTask, setEditedTask] = useState(task);
   const itemClass = completed ? styles.completedItem : styles.pendingItem;
+  const handleTaskEdit = () => {
+    onTaskEdit(id, editedTask); // 수정된 내용 부모에게 전달
+    setIsEditing(false); // 수정 모드 종료
+  };
 
   return (
     <div className={`${styles.item} ${itemClass}`}>
@@ -52,22 +59,53 @@ export const Item: React.FC<ItemProps> = ({
           </Text>
         </div>
       )}
-      <Text variant="default" className={styles.task}>
-        {task}
-      </Text>
-
+      <div className={styles.taskContainer}>
+        {isEditing ? (
+          <input
+            type="text"
+            value={editedTask}
+            onChange={(e) => setEditedTask(e.target.value)}
+            className={styles.editTask}
+          />
+        ) : (
+          <Text variant="default" className={styles.task}>
+            {task}
+          </Text>
+        )}
+      </div>
       <div className={styles.buttons}>
-        <Checkbox
-          onChange={() => onCompleteToggle(id)}
-          checked={completed}
-          label=""
-        />
+        {isEditing ? (
+          <></>
+        ) : (
+          <Checkbox
+            onChange={() => onCompleteToggle(id)}
+            checked={completed}
+            label=""
+          />
+        )}
+        {isEditing ? (
+          <Button
+            onClick={handleTaskEdit}
+            variant="delete"
+            className={styles.editButton}
+          >
+            💾
+          </Button>
+        ) : (
+          <Button
+            onClick={() => setIsEditing(true)} // 수정 모드로 전환
+            variant="delete"
+            className={styles.editButton}
+          >
+            ✏️
+          </Button>
+        )}
         <Button
           onClick={() => onDelete(id)}
           variant="delete"
           className={styles.deleteButton}
         >
-          삭제
+          🗑️
         </Button>
       </div>
     </div>
