@@ -1,3 +1,7 @@
+.blank {
+  height: 3vh;
+}
+
 .templateContainer {
   display: flex;
   flex-direction: column;

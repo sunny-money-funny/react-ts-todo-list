@@ -37,15 +37,20 @@ export const useTodo = () => {
 
   const toggleComplete = (id: number) => {
     setItems((prevItems) => {
-      const updatedItems = prevItems.map((item) =>
-        item.id === id ? { ...item, completed: !item.completed } : item
-      );
-      
+      const updatedItems = prevItems.map((item) => {
+        if (item.id === id) {
+          const newCompleted = !item.completed;
+          return { ...item, completed: newCompleted };
+        }
+        return item;
+      });
+
       // 완료된 항목을 맨 아래로 이동
       const completedItems = updatedItems.filter((item) => item.completed);
       const remainingItems = updatedItems.filter((item) => !item.completed);
 
-      return [...remainingItems, ...completedItems]; // 완료된 항목은 배열 뒤로
+      // 완료된 항목은 배열 뒤로
+      return [...remainingItems, ...completedItems];
     });
   };
 

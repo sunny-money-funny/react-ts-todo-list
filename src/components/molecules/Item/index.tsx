@@ -22,7 +22,7 @@ export const Item: React.FC<ItemProps> = ({
   category,
   task,
   completed,
-  categoryOptions,  
+  categoryOptions,
   onDelete,
   onCompleteToggle,
   onCategoryChange,
@@ -37,25 +37,36 @@ export const Item: React.FC<ItemProps> = ({
           options={categoryOptions}
           value={category}
           onChange={(newCategory) => {
-            onCategoryChange(id, newCategory); 
+            onCategoryChange(id, newCategory);
             setIsEditing(false);
-         }}
+          }}
         />
       ) : (
         <div onClick={() => setIsEditing(true)}>
-          <Text
-            variant="default"
-            className={styles.category}
-          >
-            {category === "work" ? "업무" : category === "study" ? "공부" : "전체"}
+          <Text variant="default" className={styles.category}>
+            {category === "work"
+              ? "업무"
+              : category === "study"
+              ? "공부"
+              : "전체"}
           </Text>
         </div>
       )}
-      <Text variant="default" className={styles.task}>{task}</Text>
+      <Text variant="default" className={styles.task}>
+        {task}
+      </Text>
 
       <div className={styles.buttons}>
-        <Checkbox onChange={() => onCompleteToggle(id)} checked={completed} label="" />
-        <Button onClick={() => onDelete(id)} variant="delete" className="delete-button">
+        <Checkbox
+          onChange={() => onCompleteToggle(id)}
+          checked={completed}
+          label=""
+        />
+        <Button
+          onClick={() => onDelete(id)}
+          variant="delete"
+          className={styles.deleteButton}
+        >
           삭제
         </Button>
       </div>
