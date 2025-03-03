@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface TodoItem {
   id: number;
@@ -12,9 +12,18 @@ interface TodoItem {
   onTaskEdit: (id: number, newTask: string) => void;
 }
 
+const randomMessages = [
+  "굿잡이라냥 😸",
+  "멋지다냥! 😺",
+  "집사 짱!! 😻",
+  "완료! 잘했냥 🐾",
+  "집사 perfect😽 ",
+];
+
 export const useTodo = () => {
   const [items, setItems] = useState<TodoItem[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [completedItemId, setCompletedItemId] = useState<number | null>(null);
   const categoryOptions = ["all", "work", "study"];
 
   const addTodo = (task: string, category: string) => {
@@ -54,7 +63,20 @@ export const useTodo = () => {
       // 완료된 항목은 배열 뒤로
       return [...remainingItems, ...completedItems];
     });
+
+    setCompletedItemId(id);
   };
+
+  useEffect(() => {
+    if (completedItemId !== null) {
+      const randomMessage =
+        randomMessages[Math.floor(Math.random() * randomMessages.length)];
+      alert(randomMessage);
+
+      // 완료된 항목 ID를 리셋해서 랜덤 메시지가 한 번만 나오도록 함
+      setCompletedItemId(null);
+    }
+  }, [completedItemId]); // completedItemId가 변경될 때마다 실행
 
   const changeCategory = (id: number, newCategory: string) => {
     setItems((prevItems) =>

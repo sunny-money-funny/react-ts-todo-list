@@ -52,14 +52,6 @@
   background-color: var(--col4);
 }
 
-.completedItem {
-  background-color: var(--col2);
-}
-
-.completedItem .task {
-  text-decoration: line-through;
-}
-
 .editButton {
   height: 25px;
   width: 30px;
@@ -84,4 +76,22 @@
 
 .deleteButton:hover {
   background-color: var(--col2);
+}
+
+.completedItem {
+  background-color: var(--col2);
+}
+
+.completedItem .task {
+  text-decoration: line-through;
+}
+
+.completedItem .editButton {
+  background-color: var(--col2);
+  border: none;
+}
+
+.completedItem .deleteButton {
+  background-color: var(--col2);
+  border: none;
 }
