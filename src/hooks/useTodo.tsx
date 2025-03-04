@@ -48,24 +48,30 @@ export const useTodo = () => {
 
   const toggleComplete = (id: number) => {
     setItems((prevItems) => {
+      let shouldSetCompletedId = false;
+  
       const updatedItems = prevItems.map((item) => {
         if (item.id === id) {
           const newCompleted = !item.completed;
+          if (newCompleted) {
+            shouldSetCompletedId = true; // ✅ true로 변경될 때만 플래그 설정
+          }
           return { ...item, completed: newCompleted };
         }
         return item;
       });
-
-      // 완료된 항목을 맨 아래로 이동
+  
+      if (shouldSetCompletedId) {
+        setCompletedItemId(id); // ✅ 상태 변경이 확정된 후 실행
+      }
+  
       const completedItems = updatedItems.filter((item) => item.completed);
       const remainingItems = updatedItems.filter((item) => !item.completed);
-
-      // 완료된 항목은 배열 뒤로
+  
       return [...remainingItems, ...completedItems];
     });
-
-    setCompletedItemId(id);
   };
+  
 
   useEffect(() => {
     if (completedItemId !== null) {
