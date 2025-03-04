@@ -42,10 +42,12 @@ export const useTodo = () => {
     setItems((prevItems) => [newTodo, ...prevItems]);
   };
 
+  // *TO DO* 삭제 함수
   const deleteTodo = (id: number) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
+  // *TO DO* 완료 체크 함수
   const toggleComplete = (id: number) => {
     setItems((prevItems) => {
       let shouldSetCompletedId = false;
@@ -72,26 +74,18 @@ export const useTodo = () => {
     });
   };
   
-
+  // *TO DO* 완료 시 랜덤 메시지 출력 함수
   useEffect(() => {
     if (completedItemId !== null) {
       const randomMessage =
         randomMessages[Math.floor(Math.random() * randomMessages.length)];
       alert(randomMessage);
 
-      // 완료된 항목 ID를 리셋해서 랜덤 메시지가 한 번만 나오도록 함
       setCompletedItemId(null);
     }
-  }, [completedItemId]); // completedItemId가 변경될 때마다 실행
+  }, [completedItemId]); 
 
-  const changeCategory = (id: number, newCategory: string) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, category: newCategory } : item
-      )
-    );
-  };
-
+  // *TO DO* 수정 함수
   const changeTask = (id: number, newTask: string) => {
     setItems((prevItems) =>
       prevItems.map((item) =>
@@ -100,10 +94,21 @@ export const useTodo = () => {
     );
   };
 
+  // *TO DO* 카테고리 변경 함수
+  const changeCategory = (id: number, newCategory: string) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, category: newCategory } : item
+      )
+    );
+  };
+
+  // 현재 활성화된 카테고리 필터 업데이트 
   const handleCategoryFilter = (category: string) => {
     setActiveFilter(category);
   };
 
+  // 카테고리에 따라 필터링된 *TO DO* 목록 
   const filteredItems = items.filter(
     (item) => activeFilter === "all" || item.category === activeFilter
   );

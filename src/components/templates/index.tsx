@@ -46,7 +46,10 @@ export const Template: React.FC<TemplateProps> = ({
       <div className={styles.blank}></div>
       <div className={styles.templateContainer}>
         <div className={styles.head}>
-          <Head onAdd={onAdd} onCategoryFilter={onCategoryFilter} />
+          <Head 
+            onAdd={onAdd} 
+            onCategoryFilter={onCategoryFilter} 
+          />
         </div>
         <div className={styles.body}>
           <Body
@@ -59,7 +62,11 @@ export const Template: React.FC<TemplateProps> = ({
           />
         </div>
         <div className={styles.foot}>
-          <Foot total={total} done={done} undone={undone} />
+          <Foot 
+            total={total} 
+            done={done} 
+            undone={undone} 
+          />
         </div>
       </div>
     </div>

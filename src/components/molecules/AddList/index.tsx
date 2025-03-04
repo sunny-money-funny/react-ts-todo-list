@@ -2,24 +2,22 @@ import React, { useState } from "react";
 import { Button } from "../../atoms/Button";
 import { Input } from "../../atoms/Input"; // Input 컴포넌트 불러오기
 import styles from "./styles.module.css";
-import paperPlane from "../../../assets/paper-plane-regular.svg";
-
 
 interface AddListProps {
-  onAdd: (newTask: string) => void; // 할 일을 추가하는 함수
+  onAdd: (newTask: string) => void;
 }
 
 export const AddList: React.FC<AddListProps> = ({ onAdd }) => {
-  const [task, setTask] = useState<string>(""); // 할 일을 입력받는 상태
+  const [task, setTask] = useState<string>("");
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTask(event.target.value); // 입력값을 상태에 업데이트
+    setTask(event.target.value);
   };
 
   const handleAddClick = () => {
     if (task.trim()) {
-      onAdd(task); // 할 일이 비어있지 않으면 onAdd 호출
-      setTask(""); // 입력 필드 초기화
+      onAdd(task);
+      setTask("");
     }
   };
 
