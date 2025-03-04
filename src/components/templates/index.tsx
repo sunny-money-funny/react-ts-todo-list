@@ -25,6 +25,9 @@ interface TemplateProps {
   onCategoryChange: (id: number, newCategory: string) => void;
   categoryOptions: string[];
   onTaskEdit: (id: number, newTask: string) => void;
+  total: number;
+  done: number;
+  undone: number;
 }
 
 export const Template: React.FC<TemplateProps> = ({
@@ -36,11 +39,10 @@ export const Template: React.FC<TemplateProps> = ({
   onCompleteToggle,
   categoryOptions,
   onTaskEdit,
+  total,
+  done,
+  undone,
 }) => {
-  const total = items.length;
-  const done = items.filter((item) => item.completed).length;
-  const undone = total - done;
-
   return (
     <div>
       <div className={styles.blank}></div>

@@ -47,7 +47,6 @@ export const useTodo = () => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  // *TO DO* 완료 체크 함수
   const toggleComplete = (id: number) => {
     setItems((prevItems) => {
       let shouldSetCompletedId = false;
@@ -56,15 +55,17 @@ export const useTodo = () => {
         if (item.id === id) {
           const newCompleted = !item.completed;
           if (newCompleted) {
-            shouldSetCompletedId = true; // ✅ true로 변경될 때만 플래그 설정
+            shouldSetCompletedId = true; // 상태 변경 시 플래그 설정
           }
           return { ...item, completed: newCompleted };
         }
         return item;
       });
   
+      console.log("Updated Items (before setting completedItemId):", updatedItems);
+  
       if (shouldSetCompletedId) {
-        setCompletedItemId(id); // ✅ 상태 변경이 확정된 후 실행
+        setCompletedItemId(id); // 상태 변경을 여기에만 설정
       }
   
       const completedItems = updatedItems.filter((item) => item.completed);
@@ -74,17 +75,22 @@ export const useTodo = () => {
     });
   };
   
-  // *TO DO* 완료 시 랜덤 메시지 출력 함수
   useEffect(() => {
+    console.log("useEffect triggered");
+    console.log("completedItemId after update:", completedItemId);
     if (completedItemId !== null) {
       const randomMessage =
         randomMessages[Math.floor(Math.random() * randomMessages.length)];
       alert(randomMessage);
-
+  
       setCompletedItemId(null);
+      console.log("Completed Item ID Reset:", completedItemId);
     }
-  }, [completedItemId]); 
-
+  }, [completedItemId]);
+  
+  console.log("Before update: completedItemId:", completedItemId);
+  
+  
   // *TO DO* 수정 함수
   const changeTask = (id: number, newTask: string) => {
     setItems((prevItems) =>
@@ -113,6 +119,11 @@ export const useTodo = () => {
     (item) => activeFilter === "all" || item.category === activeFilter
   );
 
+  // 전체, 완료, 미완료 할 일 계산
+  const total = items.length;
+  const done = items.filter((item) => item.completed).length;
+  const undone = total - done;
+
   return {
     items,
     addTodo,
@@ -124,5 +135,8 @@ export const useTodo = () => {
     activeFilter,
     categoryOptions,
     changeTask,
+    total,
+    done,
+    undone,
   };
 };

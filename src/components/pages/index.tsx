@@ -14,6 +14,9 @@ const Page: React.FC = () => {
     activeFilter,
     categoryOptions,
     changeTask,
+    total,
+    done,
+    undone,
   } = useTodo();
 
   return (
@@ -28,6 +31,9 @@ const Page: React.FC = () => {
       onCategoryChange={changeCategory}
       categoryOptions={categoryOptions}
       onTaskEdit={changeTask}
+      total={total}
+      done={done}
+      undone={undone}      
     />
   );
 };
