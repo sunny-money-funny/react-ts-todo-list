@@ -1,6 +1,7 @@
 # 😸 Todo List App
 
 React와 TypeScript를 활용하여 만든 **고양이 테마의 todo list app**
+
 **Atomic Design Pattern**을 적용하여 컴포넌트를 구성하였음
 
 ## 🐱 주요 기능
