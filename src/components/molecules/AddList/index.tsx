@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button } from "../../atoms/Button";
 import { Input } from "../../atoms/Input"; // Input 컴포넌트 불러오기
 import styles from "./styles.module.css";
+import paperPlane from "../../../assets/paper-plane-regular.svg";
+
 
 interface AddListProps {
   onAdd: (newTask: string) => void; // 할 일을 추가하는 함수

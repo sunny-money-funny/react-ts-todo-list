@@ -2,7 +2,6 @@
 
 .dropdown {
   font-family: "Pretendard-Regular", sans-serif;
-  color: black;
   font-style: italic;
   padding: 5px;
   background-color: var(--col4);
@@ -11,16 +10,14 @@
   list-style-type: none;
   gap: 10px;
   cursor: pointer;
-  transition: border-color 0.3s, background-color 0.3s;
-
-  border: none; /* 테두리 제거 */
-  outline: none; /* 포커스 시 나타나는 윤곽선 제거 */
-  appearance: none; /* 브라우저 기본 스타일 제거 */
+  border: none; 
+  outline: none; 
+  appearance: none; 
 }
 
 .dropdown option {
-  background-color: var(--col3);
-  color: white;
+  background-color: var(--col4);
+  color: black;
   font-style: italic;
   font-size: 14px;
 }

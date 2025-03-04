@@ -7,6 +7,11 @@
     gap:10px;
 }
 
+.inputContainer img {
+    width: 8px;
+    height: auto;
+}
+
 Input {    
     font-family: "Pretendard-Regular";
     border: var(--col2);
